@@ -4,7 +4,7 @@ import { connectDB } from "./libs/db.js";
 import dns from "dns";
 import authRoute from "./routes/authRoute.js";
 import cookieParser from "cookie-parser";
-import userRoute from "./routes/UserRoute.js";
+import userRoute from "./routes/userRoute.js";
 import { protectRoute } from "./middlewares/authMiddleware.js";
 import cors from "cors";
 

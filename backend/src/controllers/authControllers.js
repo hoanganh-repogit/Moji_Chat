@@ -45,8 +45,9 @@ export const signIn = async (req, res) => {
     if (!username || !password) {
       return res.status(400).json({ message: "Missing username or password" });
     }
-    // take hashed password from database
-    const user = await User.findOne({ username });
+    // normalize username (stored as lowercase in DB) and take hashed password from database
+    const lookupUsername = username.toString().trim().toLowerCase();
+    const user = await User.findOne({ username: lookupUsername });
     if (!user) {
       return res.status(401).json({ message: "Invalid username or password" });
     }
